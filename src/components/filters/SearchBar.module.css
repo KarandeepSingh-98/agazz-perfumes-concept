@@ -1,0 +1,27 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(198, 154, 67, 0.4);
+  padding: 10px 16px;
+  min-width: 240px;
+  flex: 1;
+}
+
+.icon {
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.wrap input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-text-on-light);
+}
+
+.wrap input:focus {
+  outline: none;
+}

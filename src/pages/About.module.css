@@ -1,0 +1,25 @@
+.page {
+  padding-block: 100px 140px;
+  min-height: 70vh;
+}
+
+.inner {
+  max-width: 760px;
+}
+
+.columns p {
+  color: var(--color-taupe);
+  font-size: 1.02rem;
+  margin-bottom: 20px;
+}
+
+.columns .note {
+  font-size: 0.88rem;
+  font-style: italic;
+  border-top: 1px solid rgba(198, 154, 67, 0.25);
+  padding-top: 20px;
+}
+
+.inner > a {
+  margin-top: 16px;
+}

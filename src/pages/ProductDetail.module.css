@@ -1,0 +1,130 @@
+.breadcrumb {
+  padding-top: 32px;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  color: var(--color-taupe);
+}
+
+.breadcrumb a {
+  color: var(--color-gold);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  padding-block: 32px 100px;
+}
+
+@media (min-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: start;
+  }
+}
+
+.imageWrap {
+  background: #fff;
+  border: 1px solid rgba(198, 154, 67, 0.25);
+  position: sticky;
+  top: 100px;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageWrap img {
+  width: 100%;
+  height: 100%;
+}
+
+.imageWrap.cover img {
+  object-fit: cover;
+}
+
+.imageWrap.contain {
+  background: linear-gradient(180deg, #fbf8f2 0%, #f3ece0 100%);
+  padding: 32px;
+}
+
+.imageWrap.contain img {
+  object-fit: contain;
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.titleRow h1 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  margin-bottom: 0;
+}
+
+.tagline {
+  color: var(--color-taupe);
+  font-size: 1.05rem;
+  margin-top: 10px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 24px 0;
+  padding: 20px 0;
+  border-top: 1px solid rgba(198, 154, 67, 0.25);
+  border-bottom: 1px solid rgba(198, 154, 67, 0.25);
+}
+
+.price {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--color-champagne);
+}
+
+.size {
+  font-size: 0.9rem;
+  color: var(--color-taupe);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.description {
+  color: var(--color-ivory);
+  font-size: 1rem;
+  margin-bottom: 36px;
+}
+
+.notesHeading {
+  font-size: 1.3rem;
+  margin-bottom: 24px;
+}
+
+.artworkBlock {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(198, 154, 67, 0.25);
+}
+
+.artworkImage {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(198, 154, 67, 0.25);
+}
+
+.disclaimer {
+  margin-top: 40px;
+  font-size: 0.78rem;
+  color: var(--color-taupe);
+  font-style: italic;
+}
+
+.related {
+  padding-block: 20px 140px;
+}

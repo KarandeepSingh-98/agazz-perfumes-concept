@@ -1,0 +1,43 @@
+.wrap {
+  max-width: 620px;
+  margin-bottom: 48px;
+}
+
+.center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.centerRule {
+  margin-inline: auto;
+}
+
+.title {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.dark .title {
+  color: var(--color-ivory);
+}
+
+.light .title {
+  color: var(--color-espresso);
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+  max-width: 48ch;
+}
+
+.dark .subtitle {
+  color: var(--color-taupe);
+}
+
+.light .subtitle {
+  color: var(--color-text-on-light-muted);
+}
+
+.center .subtitle {
+  margin-inline: auto;
+}

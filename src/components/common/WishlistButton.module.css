@@ -1,0 +1,33 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-gold);
+  background: rgba(16, 14, 11, 0.55);
+  color: var(--color-ivory);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.button:hover {
+  border-color: var(--color-gold);
+}
+
+.button.active {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.sm {
+  width: 34px;
+  height: 34px;
+}
+
+.lg {
+  width: 46px;
+  height: 46px;
+}

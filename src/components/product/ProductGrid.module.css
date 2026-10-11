@@ -1,0 +1,28 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.featured {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 620px) {
+  .featured {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 920px) {
+  .featured {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.empty {
+  padding: 80px 0;
+  text-align: center;
+  color: var(--color-text-on-light-muted);
+  font-size: 1rem;
+}
