@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useWishlist } from '../../context/useWishlist'
@@ -106,60 +107,63 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            className={styles.mobileOverlay}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setMenuOpen(false)}
-          >
-            <motion.nav
-              className={styles.mobilePanel}
-              initial={{ x: '-100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '-100%' }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-              onClick={(event) => event.stopPropagation()}
-              aria-label="Mobile"
+      {createPortal(
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              className={styles.mobileOverlay}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMenuOpen(false)}
             >
-              <button
-                type="button"
-                className={styles.mobileClose}
-                onClick={() => setMenuOpen(false)}
-                aria-label="Close navigation menu"
+              <motion.nav
+                className={styles.mobilePanel}
+                initial={{ x: '-100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '-100%' }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+                onClick={(event) => event.stopPropagation()}
+                aria-label="Mobile"
               >
-                <CloseIcon />
-              </button>
-              <ul className={styles.mobileLinks}>
-                {NAV_LINKS.map((link) => (
-                  <li key={link.to}>
-                    <NavLink to={link.to} end={link.to === '/'} onClick={() => setMenuOpen(false)}>
-                      {link.label}
+                <button
+                  type="button"
+                  className={styles.mobileClose}
+                  onClick={() => setMenuOpen(false)}
+                  aria-label="Close navigation menu"
+                >
+                  <CloseIcon />
+                </button>
+                <ul className={styles.mobileLinks}>
+                  {NAV_LINKS.map((link) => (
+                    <li key={link.to}>
+                      <NavLink to={link.to} end={link.to === '/'} onClick={() => setMenuOpen(false)}>
+                        {link.label}
+                      </NavLink>
+                    </li>
+                  ))}
+                  <li>
+                    <NavLink to="/wishlist" onClick={() => setMenuOpen(false)}>
+                      Wishlist {wishlist.length > 0 && `(${wishlist.length})`}
                     </NavLink>
                   </li>
-                ))}
-                <li>
-                  <NavLink to="/wishlist" onClick={() => setMenuOpen(false)}>
-                    Wishlist {wishlist.length > 0 && `(${wishlist.length})`}
-                  </NavLink>
-                </li>
-              </ul>
-              <form className={styles.mobileSearch} onSubmit={handleSearchSubmit}>
-                <SearchIcon />
-                <input
-                  type="search"
-                  placeholder="Search fragrances…"
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
-                  aria-label="Search fragrances"
-                />
-              </form>
-            </motion.nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                </ul>
+                <form className={styles.mobileSearch} onSubmit={handleSearchSubmit}>
+                  <SearchIcon />
+                  <input
+                    type="search"
+                    placeholder="Search fragrances…"
+                    value={query}
+                    onChange={(event) => setQuery(event.target.value)}
+                    aria-label="Search fragrances"
+                  />
+                </form>
+              </motion.nav>
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </header>
   )
 }
